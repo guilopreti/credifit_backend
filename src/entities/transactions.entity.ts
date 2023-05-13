@@ -6,7 +6,7 @@ import { User } from "./user.entity";
 export enum TransactionType {
   CREATOR_SALE = 1,
   AFFILIATED_SALE = 2,
-  COMMISSION_PAIS = 3,
+  COMMISSION_PAID = 3,
   COMMISSION_RECEIVED = 4,
 }
 
