@@ -7,6 +7,14 @@ import AppError from "../errors/app.Error";
 
 class AffiliatedSaleService {
   public static async execute(transaction: ITransaction) {
+    const returnMessage = {
+      transaction: "Affiliated Sale",
+      date: transaction.date,
+      user: transaction.user,
+      product: transaction.product,
+      value: transaction.value,
+    };
+
     try {
       const userRepository = AppDataSource.getRepository(User);
       const productRepository = AppDataSource.getRepository(Product);
@@ -57,8 +65,19 @@ class AffiliatedSaleService {
 
       await userRepository.save(user);
       await productRepository.save(product);
+
+      return {
+        ...returnMessage,
+        status: "Registration Completed!",
+      };
     } catch (error) {
-      console.log(error);
+      if (error instanceof AppError) {
+        return {
+          ...returnMessage,
+          status: `Error ${error.statusCode}`,
+          message: error.message,
+        };
+      }
     }
   }
 }

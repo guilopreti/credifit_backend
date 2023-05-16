@@ -6,29 +6,34 @@ import CreatorSaleService from "./creatorSale.service";
 
 class RegisterTransactionService {
   public static async execute(data: ITransaction[]) {
+    let recordsReturn: { [key: number]: any } = {};
     for (let i = 0; i < data.length; i++) {
       if (data[i].type === 1) {
-        await CreatorSaleService.execute(data[i]);
+        const record = await CreatorSaleService.execute(data[i]);
+        recordsReturn[i] = record;
         continue;
       }
 
       if (data[i].type === 2) {
-        await AffiliatedSaleService.execute(data[i]);
+        const record = await AffiliatedSaleService.execute(data[i]);
+        recordsReturn[i] = record;
         continue;
       }
 
       if (data[i].type === 3) {
-        await CommissionPaidService.execute(data[i]);
+        const record = await CommissionPaidService.execute(data[i]);
+        recordsReturn[i] = record;
         continue;
       }
 
       if (data[i].type === 4) {
-        await CommissionReceivedService.execute(data[i]);
+        const record = await CommissionReceivedService.execute(data[i]);
+        recordsReturn[i] = record;
         continue;
       }
     }
 
-    return { message: "Completed!" };
+    return recordsReturn;
   }
 }
 
