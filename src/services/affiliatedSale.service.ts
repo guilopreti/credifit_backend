@@ -67,6 +67,7 @@ class AffiliatedSaleService {
       await productRepository.save(product);
 
       return {
+        id: newTransaction.id,
         ...returnMessage,
         status: "Registration Completed!",
       };

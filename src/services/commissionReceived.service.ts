@@ -59,6 +59,7 @@ class CommissionReceivedService {
       await userRepository.save(user);
 
       return {
+        id: newTransaction.id,
         ...returnMessage,
         status: "Registration Completed!",
       };

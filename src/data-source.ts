@@ -5,10 +5,12 @@ import { DataSource } from "typeorm";
 export const AppDataSource =
   process.env.NODE_ENV === "test"
     ? new DataSource({
-        type: "sqlite",
-        database: ":memory:",
-        entities: ["src/entities/*.ts"],
+        type: "postgres",
+        url: process.env.DATABASE_TEST,
+        entities: ["src/entities/*.*"],
+        migrations: ["src/migrations/*.ts"],
         synchronize: true,
+        logging: ["error"],
       })
     : new DataSource({
         type: "postgres",
