@@ -3,6 +3,8 @@
 <h2 align="center">Introdução</h2>
    
    Este projeto é um API desenvolvida em Node.js, utilizando TypeScript, Express, TypeORM, PostgreSQL e Jest para testes. A API possui duas rotas principais: registro de transações e listagem de usuários! No processo de investigação para o desenvolvimento do projeto usei de base alguns dos meus projetos já finalizados, para configuração de banco de dados e testes, organização de pastas e arquivos, e bibliotecas utilizadas!
+   
+Deploy URL: https://credifit-api.onrender.com/
 
 This is a challenge by Coodesh
 
