@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import RegisterTransactionService from "./services/transaction.service";
+import ListUsersService from "./services/listUsers.service";
 
 class AppController {
   static async store(req: Request, res: Response) {
@@ -16,6 +17,12 @@ class AppController {
     const transaction = await RegisterTransactionService.execute(data);
 
     return res.status(201).json(transaction);
+  }
+
+  static async index(req: Request, res: Response) {
+    const usersList = await ListUsersService.execute();
+
+    return res.json(usersList);
   }
 }
 
