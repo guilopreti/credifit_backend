@@ -9,7 +9,8 @@
     "dev": "ts-node-dev --inspect --ignore-watch node_modules src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs",
     "build": "tsc",
-    "test": "NODE_ENV=test jest -i"
+    "test": "NODE_ENV=test jest -i",
+    "start": "node dist/src/server.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
