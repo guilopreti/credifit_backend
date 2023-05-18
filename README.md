@@ -8,6 +8,18 @@ Deploy URL: https://credifit-api.onrender.com/
 
 This is a challenge by Coodesh
 
+## Instalação
+Caso queira rodar essa aplicação em seu proprio PC, pode seguir estes passos:
+1. Clone o repositório do projeto: git clone git@github.com:guilopreti/credifit_backend.git
+2. Acesse o diretório do projeto
+3. Instale as dependências do projeto: yarn install
+4. Crie um database novo para utilizar no projeto
+5. Configure as variáveis de ambiente no arquivo `.env`: 
+- DATABASE_URL="postgres://POSTGRES_USER:POSTGRES_PASSWORD@HOST:PORT/POSTGRES_DB"
+6. Rode as migrations: yarn typeorm migration:run -d src/data-source.ts
+7. Rode a aplicação com o comando: yarn dev
+
+
 ##
 
 <div align="center" style="display: inline_block">
